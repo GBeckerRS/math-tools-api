@@ -1,0 +1,9 @@
+=== Doc about the use of Semantic Versioning ===
+Source: https://semver.org/spec/v2.0.0-rc.2.html
+
+Version format -> X.Y.Z (Major.Minor.Patch)
+
+*Z or Patch version: Bug fixes not affecting the API increment the patch version;
+*Y or Minor version: Compatible API additions/changes increment the minor version;
+*X or Major version: Backwards incompatible API changes increment the major version;
+
