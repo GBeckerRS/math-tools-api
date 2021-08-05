@@ -1,57 +1,75 @@
-=== My simple doc about OneFlow Git Workflow ===
-Based on: https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow
+# OneFlow Git Workflow
 
--> THE MAIN BRANCH <-
-OneFlow's basic premise is to have one eternal branch in your repository. 
+See more [here][oneflow].
 
--> FEATURE BRANCHES <-
-Feature Branachs are where the day-to-day development work happens - hence, they
+## THE MAIN BRANCH
+
+OneFlow's basic premise is to have one eternal branch in your repository.  
+
+## FEATURE BRANCHES
+
+Feature Branchs are where the day-to-day development work happens - hence, they
 are by far the most common of all the support branches. They are used to develop
 new feature and bugfixes for the upcoming release. They are usually named similarly
-'feature/my-feature'.
+**feature/my-feature**.
 
 Feature branches often exist only in the developer's repository, and are never
 pushed.
 
-    Starting a feature branch
-$ git checkout -b feature/my-feature master
+### Starting a feature branch
 
-    Finishing a feature branch
+```
+$ git checkout -b feature/my-feature master
+```
+
+### Finishing a feature branch
+
+```
 $ git checkout feature/my-feature
 $ git rebase -i master
 $ git checkout master
 $ git merge --ff-only feature/my-feature
 $ git push origin master
 $ git branch -d feature/my-feature
+```
 
--> RELEASE BRANCHES <-
+## RELEASE BRANCHES
+
 Release brancheas are created to prepare the software for being relase. This
 could be as simpler as bumping the version number in the configuration, or 
 involve things like code freezes, producing Release Candidates, and having a
 full QA process. The important thing is all that happens on a separate branch,
-so that day-to-day development can continue as usual on 'master'.
+so that day-to-day development can continue as usual on **master**.
 
-    Starting a release branch
-Release branches also start from 'master', however they often don’t start from 
-the tip – instead, they have their origin in whatever commit on 'master' you 
+### Starting a release branch
+
+Release branches also start from **master**, however they often don’t start from 
+the tip – instead, they have their origin in whatever commit on **master** you 
 think contains all of the features that you want to include in the given release.
+They are name **release/Major.Minor.Patch**.
 
+```
 $ git checkout -b release/2.3.0 9efc5d
 PS.: 9efc5d = hash commit
+```
 
-   Finishing a release branch 
+### Finishing a release branch 
+
 Once whatever process you use for releasing is finished, the tip of the branch 
 is tagged with the version number. After that, the branch needs to be merged 
-into 'master' to be versioned permanently:
+into **master** to be versioned permanently:
 
+```
 $ git checkout release/2.3.0
 $ git tag 2.3.0
 $ git checkout master
 $ git merge release/2.3.0
 $ git push --tags origin master
 $ git branch -d release/2.3.0
+```
 
--> HOTFIXES BRANCHES <-
+## HOTFIXES BRANCHES
+
 Hotfix branches are very similar to release branches – they result in a new 
 version of the project being released. Where they differ is their intentions – 
 while release branches signify a planned production milestone, hotfix branches 
@@ -59,19 +77,27 @@ are most often an unwanted but necessary exception to the usual release cadence,
 typically because of some critical defect found in the latest release that needs 
 to be fixed as soon as possible.
 
-They are named hotfix/<version-number>. Note that if you use Semantic Versioning, 
+They are named **hotfix/<version-number>**. Note that if you use Semantic Versioning, 
 regular releases bump either the Major or Minor number, while hotfixes bump the 
 Patch number.
 
-    Starting a hotfix branch
+### Starting a hotfix branch
+
+```
 $ git checkout -b hotfix/2.3.1 2.3.0
 PS.: 2.3.0 = tag from the last release
+```
 
-    Finishing a hotfix branch
+### Finishing a hotfix branch
+
+```
 $ git checkout hotfix/2.3.1
 $ git tag 2.3.1
 $ git checkout master
 $ git merge hotfix/2.3.1
 $ git push --tags origin master
 $ git branch -d hotfix/2.3.1
+```
+
+[oneflow]: <https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow>
 

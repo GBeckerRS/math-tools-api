@@ -1,9 +1,12 @@
-=== Doc about the use of Semantic Versioning ===
-Source: https://semver.org/spec/v2.0.0-rc.2.html
+# Semantic Versioning
+
+See more [here][semver].
 
 Version format -> X.Y.Z (Major.Minor.Patch)
 
-*Z or Patch version: Bug fixes not affecting the API increment the patch version;
-*Y or Minor version: Compatible API additions/changes increment the minor version;
-*X or Major version: Backwards incompatible API changes increment the major version;
+- Z or Patch version: Bug fixes not affecting the API increment the patch version;
+- Y or Minor version: Compatible API additions/changes increment the minor version;
+- X or Major version: Backwards incompatible API changes increment the major version;
+
+[semver]: <https://semver.org/spec/v2.0.0-rc.2.html>
 
