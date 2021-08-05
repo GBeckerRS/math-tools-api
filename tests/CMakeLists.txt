@@ -7,8 +7,12 @@ FetchContent_Declare(
     )
 FetchContent_MakeAvailable(catch2)
 
+set( SOURCES_TEST
+   mainTest.cpp
+   sumTest.cpp)
+
 # Tests need to be added as executables first
-add_executable(${TESTAPP} mainTest.cpp)
+add_executable(${TESTAPP} ${SOURCES_TEST})
 
 # Link the Catch2 testing library
 target_link_libraries(${TESTAPP} PRIVATE ${LIBS} Catch2::Catch2)
