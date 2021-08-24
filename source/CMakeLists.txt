@@ -1,6 +1,6 @@
 # Define source files alias
 set (SOURCES 
-    foo/foo.cpp)
+     myMath.cpp)
 
 # Create a target for a library
 add_library (${PROJECT_NAME}Core ${SOURCES})

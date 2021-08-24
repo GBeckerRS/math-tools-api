@@ -1,7 +1,7 @@
 # Versão mínima necessária
 cmake_minimum_required (VERSION 3.11)
 
-project (CMakePadrao)
+project (math-tools-api)
 
 # Alias para os targets de teste e lib
 set (TESTAPP ${PROJECT_NAME}Test)
