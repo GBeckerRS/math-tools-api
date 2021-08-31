@@ -9,7 +9,8 @@ FetchContent_MakeAvailable(catch2)
 
 set( SOURCES_TEST
    mainTest.cpp
-   sumTest.cpp)
+   sumTest.cpp
+   subTest.cpp)
 
 # Tests need to be added as executables first
 add_executable(${TESTAPP} ${SOURCES_TEST})

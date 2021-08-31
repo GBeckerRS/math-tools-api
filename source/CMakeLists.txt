@@ -1,6 +1,7 @@
 # Define source files alias
 set (SOURCES 
-    Sum.cpp)
+    Sum.cpp
+    Sub.cpp)
 
 # Create a target for a library
 add_library (${PROJECT_NAME}Core ${SOURCES})
